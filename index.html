@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Aura.Fun — Shop</title>
+  <meta name="description" content="Aura.Fun — simple things, made better.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+    (() => {
+      const path = window.location.pathname;
+
+      if (
+        path.startsWith("/products/") &&
+        path.split("/").filter(Boolean).length >= 2
+      ) {
+        try {
+          sessionStorage.setItem("aura-last-product-route", path);
+        } catch {}
+      }
+    })();
+  </script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+
+    <a class="logo" href="/" aria-label="Aura home">
+      <span>A</span>ura
+    </a>
+
+    <nav class="desktop-nav">
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="header-btn cart-button" id="cartButton" type="button">
+        Bag
+        <span class="count" id="cartCount">0</span>
+      </button>
+
+      <button
+        class="header-btn menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+
+<main id="app">
+
+  <section class="hero">
+    <div class="hero-glow hero-glow-one"></div>
+    <div class="hero-glow hero-glow-two"></div>
+
+    <div class="wrap hero-inner">
+
+      <div class="hero-copy">
+        <div class="eyebrow">
+          AURA.FUN
+        </div>
+
+        <h1>
+          Things worth
+          <em>having.</em>
+        </h1>
+
+        <p>
+          A small collection of useful, fun and good-looking things.
+          Nothing complicated.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-red" href="#shop">
+            Shop collection
+          </a>
+
+          <a class="hero-link" href="#about">
+            Why Aura
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-orbit">
+        <div class="orbit-ring"></div>
+
+        <div class="hero-product hero-product-one">
+          <div class="hero-product-inner">A</div>
+        </div>
+
+        <div class="hero-product hero-product-two">
+          <div class="hero-product-inner">U</div>
+        </div>
+
+        <div class="hero-product hero-product-three">
+          <div class="hero-product-inner">R</div>
+        </div>
+
+        <div class="hero-badge">
+          <span>NEW</span>
+          <strong>2026</strong>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="shop-section" id="shop">
+    <div class="wrap">
+
+      <div class="section-heading">
+        <div>
+          <span class="section-label">THE COLLECTION</span>
+          <h2>Shop Aura.</h2>
+        </div>
+
+        <p>
+          Pick something you like.
+          We'll handle the rest.
+        </p>
+      </div>
+
+
+      <div class="shop-toolbar">
+
+        <div class="categories" id="categories"></div>
+
+        <div class="shop-tools">
+
+          <label class="search-box">
+            <span>⌕</span>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Search products..."
+              autocomplete="off"
+            >
+          </label>
+
+          <select class="sort-select" id="sortSelect">
+            <option value="featured">Featured</option>
+            <option value="low">Price: low to high</option>
+            <option value="high">Price: high to low</option>
+            <option value="az">Name: A–Z</option>
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <div class="product-grid" id="productGrid"></div>
+
+    </div>
+  </section>
+
+
+  <section class="about-section" id="about">
+    <div class="wrap">
+
+      <div class="section-heading about-heading">
+        <div>
+          <span class="section-label">ABOUT AURA</span>
+          <h2>Simple by design.</h2>
+        </div>
+
+        <p>
+          Aura is built around small products that feel
+          considered instead of complicated.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+
+        <article class="feature-card">
+          <span class="feature-number">01</span>
+          <div>
+            <h3>Clean</h3>
+            <p>
+              Products and interfaces without unnecessary clutter.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature-card feature-red">
+          <span class="feature-number">02</span>
+          <div>
+            <h3>Personal</h3>
+            <p>
+              Choose colors and variants that fit your style.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-number">03</span>
+          <div>
+            <h3>Useful</h3>
+            <p>
+              Everything exists for a reason. No filler.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="contact-section" id="contact">
+    <div class="wrap contact-inner">
+
+      <div>
+        <span class="section-label">CONTACT</span>
+        <h2>Have a question?</h2>
+      </div>
+
+      <a class="btn btn-dark" href="mailto:#">
+        not yet
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="wrap footer-inner">
+
+    <a class="footer-logo" href="/">
+      Aura
+    </a>
+
+    <span>
+      © 2026 Aura.Fun
+    </span>
+
+    <div class="footer-links">
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+  </div>
+</footer>
+
+
+<div class="overlay" id="overlay"></div>
+
+
+<aside class="cart-drawer" id="cartDrawer">
+
+  <div class="drawer-head">
+    <div>
+      <span class="drawer-label">YOUR BAG</span>
+      <h2>Cart</h2>
+    </div>
+
+    <button class="close-btn" id="closeCart" type="button">
+      ×
+    </button>
+  </div>
+
+  <div class="cart-body" id="cartBody"></div>
+
+  <div class="cart-footer">
+
+    <div class="cart-total">
+      <span>Total</span>
+      <strong id="cartTotal">£0.00</strong>
+    </div>
+
+    <button class="checkout-btn" id="checkoutButton" type="button">
+      Checkout
+    </button>
+
+    <p class="checkout-note">
+      Checkout can be connected to your payment provider later.
+    </p>
+
+  </div>
+
+</aside>
+
+
+<div class="toast" id="toast"></div>
+
+
+<script src="/js/script.js"></script>
+
+</body>
+</html>
